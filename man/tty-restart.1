@@ -1,0 +1,50 @@
+.TH TTY-RESTART 1 "June 2025" "1.0" "User Commands"
+.SH NAME
+tty-restart \- safely restart a virtual console (TTY)
+.SH SYNOPSIS
+.B tty-restart
+[\fITARGET_TTY]\fR] [\fIALT_TTY\fR] [\fIOPTIONS\fR]
+.SH DESCRIPTION
+\fBtty-restart\fR restarts a Linux virtual console (TTY)
+by writing the restart command into another TTY so the target
+console never attempts to kill itself.
+
+If \fITARGET_TTY\fR is \fB0\fR or \fBtty0\fR, the current
+TTY is used. If \fIALT_TTY\fR is \fB0\fR or \fBtty0\fR,
+the first available free TTY is selected.
+
+.SH ARGUMENTS
+.TP
+\fITARGET_TTY\fR
+TTY to restart (e.g. 5, tty5). Defaults to the current TTY.
+.TP
+\fIALT_TTY\fR
+TTY used to send the restart command. Must differ from target.
+.TP
+\fB--dry-run\fR
+Print the actions without executing.
+.TP
+\fB--verbose\fR
+Display progress and TTY tests.
+.TP
+\fB--help\fR
+Display usage information.
+
+.SH EXAMPLES
+.nf
+tty-restart             Restart current TTY via a free one
+tty-restart 5           Restart tty5 via a free one
+tty-restart 5 3         Restart tty5 via tty3
+tty-restart 0 2         Restart current TTY via tty2
+tty-restart 4 --dry-run Simulate restart of tty4
+.fi
+
+.SH LICENSE
+Copyright (C) 2025 Picsel / LassaInora
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published
+by the Free Software Foundation, version 3 or later.
+
+.SH AUTHOR
+Written by Picsel / LassaInora.
