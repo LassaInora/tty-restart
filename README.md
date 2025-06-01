@@ -14,7 +14,7 @@ A safe and flexible Bash script to restart a TTY console session using another T
 ```bash
 git clone https://github.com/LassaInora/tty-restart.git
 cd tty-restart
-;/install.sh
+./install.sh
 ```
 
 ## Usage
