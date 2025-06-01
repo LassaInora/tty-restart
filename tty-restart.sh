@@ -57,13 +57,13 @@ set -- "${POSITIONAL[@]}"
 # =-= =-= =< RESOLVE TARGET TTY >= =-= =-= #
 if [ -n "$1" ]; then
     case "$1" in
-        0|tty0)       TARGET_TTY=$(tty | sed 's/dev/::') ;;
+        0|tty0)       TARGET_TTY=$(tty | sed 's|/dev/||') ;;
         tty[0-9]*)     TARGET_TTY="$1" ;;
         [0-9]*)        TARGET_TTY="tty$1" ;;
         *)            echo "Error: invalid TARGET_TTY"; exit 1 ;;
     esac
 else
-    TARGET_TTY$(tty | sed 's/dev/::')
+    TARGET_TTY=$(tty | sed 's|/dev/||')
 fi
 
 if [ ! -e "/dev/$TARGET_TTY" ]; then
