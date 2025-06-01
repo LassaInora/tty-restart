@@ -1,9 +1,8 @@
 * Add:
-  - uninstall.sh
-    - You can uninstall my apps :)
+  - /
 * Update:
-  - install.sh
-    - You can read corectly the man page !
+  - tty-restart.sh
+    - Fix the default call
 * Deprecated:
   - /
 * Remove:
