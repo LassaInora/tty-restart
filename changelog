@@ -1,7 +1,9 @@
 * Add:
-  - /
+  - uninstall.sh
+    - You can uninstall my apps :)
 * Update:
-  - /
+  - install.sh
+    - You can read corectly the man page !
 * Deprecated:
   - /
 * Remove:
